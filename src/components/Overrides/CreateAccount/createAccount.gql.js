@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { CheckoutPageFragment } from '@magento/peregrine/lib/talons/CheckoutPage/checkoutPageFragments.gql';
 
-export const CREATE_ACCOUNT = gql`
+export const GET_CREATE_ACCOUNT = gql`
     mutation CreateAccount(
         $email: String!
         $firstname: String!
@@ -129,7 +129,7 @@ export const MERGE_CARTS = gql`
 `;
 
 export default {
-    createAccountMutation: CREATE_ACCOUNT,
+    createAccountMutation: GET_CREATE_ACCOUNT,
     createCartMutation: CREATE_CART,
     getCartDetailsQuery: GET_CART_DETAILS,
     getCustomerQuery: GET_CUSTOMER,
