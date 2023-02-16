@@ -6,6 +6,13 @@ const componentOverrideMapping = module.exports={
 const componentOverrideMappingPerigrain = module.exports={
     ['@magento/peregrine/lib/talons/CreateAccount/useCreateAccount.js']:'src/components/Overrides/peregrine/useCreateAccount.js'
 };
+const componentOverRidingLogo = module.exports={
+    ['@magento/peregrine/lib/util/makeUrl']:'src/components/Logo/usemakeUrl.js'
+};
+ const componentLogo = module.exports={
+     ['@magento/venia-ui/lib/components/Logo']:'src/components/Logo/logo.js'
+ };
+
 module.exports = targets => {
     const targetables = Targetables.using(targets);
     const ProductDetails = targetables.reactComponent(
@@ -28,4 +35,12 @@ module.exports = targets => {
     targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
         new moduleOverridePlugin(componentOverrideMappingPerigrain).apply(compiler);
     });
+    targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+        new moduleOverridePlugin(componentOverRidingLogo).apply(compiler);
+    });
+     targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+         new moduleOverridePlugin(componentLogo).apply(compiler);
+     });
+
+
 };
